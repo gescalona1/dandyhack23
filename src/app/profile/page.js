@@ -1,9 +1,23 @@
-import ProfileClient from "../../../components/client"
+import ProfileClient from "../../../components/profile"
+import Landing from "../../components/landing"
 
-export default function ProfilePage() {
+import { getSession } from '@auth0/nextjs-auth0';
+import { connect, updateUser, UserData } from '../lib/redis'
+
+export default async function ProfilePage() {
+    const session = await getSession();
+    if (session == null) {
+        return (
+            <>
+            <Landing />
+            </>
+        )
+    }
+    
+
     return (
         <>
-        <ProfileClient />
+        <ProfileClient user={userObj} />
         </>
     )
 }
