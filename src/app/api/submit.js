@@ -5,4 +5,5 @@ export default function handler(req, res) {
   }
 
   console.log(req);
+  //Here we make sure that there is a user.
 }
