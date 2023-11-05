@@ -150,10 +150,10 @@ const titleStyle2 = {
       {/* <p style={subTitleStyle}>Results:</p> */}
         <div >
             {/* <p style = {spacerStyle}></p> */}
-            <p style={smallContainerStyle}>
+            <div style={smallContainerStyle}>
                 <br /> {/* Line break here */}
                 <h1> Quiz Results </h1>
-            </p>
+            </div>
          
         </div>
       </div>
@@ -163,8 +163,8 @@ const titleStyle2 = {
         <tr>
         <th style={tableCellStyle}>
     <a style={subTitleStyle}> <br />MBTI TYPES</a> <br /><br />
-    Expert (Title) <br /><br />
-    Experts are known for being really smart but also really dumb. They have a tendency to do...<br /><br /><br /><br />
+    The Debator <br /><br />
+    Debators are known for being really chatty but also really silent. They have a tendency to do...<br /><br /><br /><br />
 </th>
 
 <th style={tableCellStyle}>
@@ -223,16 +223,18 @@ const titleStyle2 = {
           <th style={tableCellStyle}> <a>   <div style={smallContainerStyle}>
                 <h3>MYERS-BRIGGS PERSONALITY TEST</h3>
             </div></a> <br /> {/* Line break here */}
-           Expert (Name)
+            16personalities is a personality test analyzing the personal 
+            traits of the test-taker and putting those on a scale from 0 to 100. 
+            The corner values represent the very opposite sides of the spectrum for the given trait.
           <br /> {/* Line break here */}<br /> {/* Line break here */}
-          Experts are known for being really smart but also really dumb (Descripton)
+          This test was developed with scienece. It is extremly accurate.
           <br /> {/* Line break here */} <br /> {/* Line break here */} <br /> {/* Line break here */}
           <br /> {/* Line break here */}</th> 
-          <th style={tableCellStyle}> <h3>CONTENT CREATOR RESULTS</h3> <br /> {/* Line break here */}
-          <br /> {/* Line break here */} list of things here...
-          <br /> {/* Line break here */} bullet points...?
-          <br /> {/* Line break here */} 
-          <br /> {/* Line break here */} <br /> {/* Line break here */} <br /> {/* Line break here */}
+          <th style={tableCellStyle}> <h3>YOUR CONTENT CREATOR RESULTS</h3> <br /> {/* Line break here */}
+          <br /> {/* Line break here */} -video commenter
+          <br /> {/* Line break here */} -journalist/interviewer
+          <br /> {/* Line break here */} -streamer
+          <br /> {/* Line break here */} -tiktoker<br /> {/* Line break here */} <br /> {/* Line break here */}
           <br /> {/* Line break here */}</th> 
         </tr>
       </thead>
