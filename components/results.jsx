@@ -224,7 +224,7 @@ const Results = async (res) =>  {
       <div style={contentStyle}>
         <div style={spacerStyle}></div>
       {/* <h1 style={subTitleStyle}> COMPATIBLE CONTENT CREATORS</h1> */}
-      <h1 style={titleStyle2}>What Do My Test Results Mean?</h1>
+      <h1 style={titleStyle2}>Compatible Content Creators</h1>
       <div style={CollabStyle}>
     
       <table className="table-auto">

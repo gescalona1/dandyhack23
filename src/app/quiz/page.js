@@ -17,7 +17,7 @@ const titleStyle = {
 
 const mainContainerStyle = {
     backgroundColor: 'white',
-    minHeight: '100vh',
+    minHeight: '1000px',
     textAlign: 'center',
   };
 export default async function Questions() {
@@ -36,13 +36,11 @@ export default async function Questions() {
             <h1 style={titleStyle}>MatchYa!</h1>
         </div>
         {/* <!-- Rest of your content --> */}
-    </main>
-       <dir style = "maincContainerStyle">
+       <dir style={mainContainerStyle}>
            <dir>
-            
+           <Form user={session["user"]}/>
            </dir>
-            <Form user={session["user"]}/>
        </dir>
-       
+       </main>
     </>)
 }

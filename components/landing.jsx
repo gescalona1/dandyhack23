@@ -7,7 +7,7 @@ export default function Landing() {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundImage: 'url("/social.jpeg")',
+    backgroundImage: 'url("https://i.imgur.com/ZUmxEOs.jpg")',
     backgroundPosition: 'center',
     background: 'green',
   };
