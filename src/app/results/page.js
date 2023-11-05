@@ -16,6 +16,8 @@ export default async function Home() {
     const client = await connect(); 
     const data = await UserData.fetch(session["user"].email);
 
+    const people = await UserData.search().where("communication_t").not.eq("").return.all();
+    console.log(people);
     return (
         <>
             <Results results={data} />
