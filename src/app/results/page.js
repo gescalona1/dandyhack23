@@ -8,6 +8,8 @@ export default function Home() {
     color: 'black',
     fontFamily: 'sans-serif',
   };
+
+
   const loginSignupStyle = {
   
     color: 'black',
@@ -113,9 +115,9 @@ export default function Home() {
         <a style={mainContainerStyle}>
 
         </a>
-        <div style={spacerStyle}>
+        {/* <div style={spacerStyle}>
 
-        </div>
+        </div> */}
       {/* <p style={subTitleStyle}>Results:</p> */}
         <div >
             {/* <p style = {spacerStyle}></p> */}
@@ -193,11 +195,27 @@ export default function Home() {
       <thead>
         <tr>
           <th style={tableCellStyle}> <a>   <div style={smallContainerStyle}>
-                <h3>MYERS-BRIGGS PERSONALITY TEST</h3>
+                <h2>MYERS-BRIGGS PERSONALITY TEST</h2>
             </div></a> <br /> {/* Line break here */}
-          <br /> {/* Line break here */} Expert
           <br /> {/* Line break here */}
-          Experts are known for being really smart but also really dumb
+          <p>
+          The MBTI® is a tool to enrich people’s understanding of themselves 
+          and others. But what is it, really? A fun personality 
+            assessment? Or a serious business tool? It’s both. And it’s a 
+            scientifically-validated psychometric assessment.
+            <br /> <br />
+           
+            <a>
+            Extroverted/Introverted (E/I)
+            </a>
+            <br />
+            Intuitive/Sensing (N/S)
+            <br />
+            Feeling/Thinking (F/T)
+            <br />
+            Percieving/Judging (P/J)
+          </p>
+         
           <br /> {/* Line break here */} <br /> {/* Line break here */} <br /> {/* Line break here */}
           <br /> {/* Line break here */}</th> 
           <th style={tableCellStyle}> <a style={subTitleStyle}> DOMAIN TYPE</a> <br /> {/* Line break here */}
