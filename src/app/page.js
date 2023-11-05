@@ -5,6 +5,13 @@ import Image from 'next/image'
 import { getSession } from '@auth0/nextjs-auth0';
 import { connect, updateUser, UserData } from '../../lib/redis'
 
+import { Metadata } from 'next'
+
+
+export const metadata = {
+  title: 'MatchYa!',
+}
+
 export default async function Home() {
   const session = await getSession();
   if (session == null) {
