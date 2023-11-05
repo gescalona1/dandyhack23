@@ -1,7 +1,7 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import { connect, updateUser, UserData } from '../../../lib/redis'
+import { updateUser } from '../../../lib/redis'
 
 export async function handle(prevState, formData) {
     
@@ -47,7 +47,6 @@ export async function handle(prevState, formData) {
         "sound_t": m["s"],
         "tags": []
     }
-    const client = await connect();
     updateUser(obj);
     
     redirect("/results");

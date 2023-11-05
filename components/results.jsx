@@ -1,14 +1,48 @@
 import { Space_Grotesk } from 'next/font/google';
 import React from 'react';
 
+
+const findDomainType = (person) => {
+  let c = parseInt(person["communication_t"]);
+  let a = parseInt(person["appearance_t"]);
+  let s = parseInt(person["sound_t"]);
+  
+  let m = new Map([['Visual', a], ['Communication', c], ["Audio", s]]);
+  const ans = [...m.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
+
+  return ans[0];
+};
+
+const evaluate = (com, app, sou, person) => {
+  const diff1 = Math.pow(person["communication_t"] - com, 2);
+  const diff2 = Math.pow(person["appearance_t"] - app, 2);
+  const diff3 = Math.pow(person["sound_t"] - sou, 2);
+
+  return Math.sqrt(diff1 + diff2 + diff3);  
+};
+
 const Results = async (res) =>  {
     const results = res["results"];
-    console.log(results);
+    const people = results["people"];
     
-    const co = (results["communication_t"] / 10) * 100;
-    const ap = (results["appearance_t"] / 10) * 100;
-    const so = (results["sound_t"] / 10) * 100;
-    
+    const com = results["communication_t"];
+    const app = results["appearance_t"];
+    const sou = results["sound_t"];
+    const co = (com / 10) * 100;
+    const ap = (app / 10) * 100;
+    const so = (sou / 10) * 100;
+
+    for (let p of people) {
+      console.log(p.name + ": " + evaluate(com, app, sou, p));
+    }
+    people.sort(function(a, b) {
+      const a_dist = evaluate(com, app, sou, a);
+      const b_dist = evaluate(com, app, sou, b);
+      return a_dist - b_dist;
+    });
+    for (let p of people) {
+      console.log(p.name + ": " + evaluate(com, app, sou, p));
+    }
     const titleStyle = {
         textAlign: 'center',
         fontSize: '10vh',
@@ -203,18 +237,14 @@ const Results = async (res) =>  {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td style={CollabTable}>John</td>
-                <td style={CollabTable}>Audio</td>
-                <td style={CollabTable}>ENFP</td>
-                <td style={CollabTable}>Cooking Channel</td>
-              </tr>
-              <tr>
-                <td style={CollabTable}>Alice</td>
-                <td style={CollabTable}>Video</td>
-                <td style={CollabTable}>INTJ</td>
-                <td style={CollabTable}>Gaming Channel</td>
-              </tr>
+              {people.map((person) => (
+                <tr>
+                  <td style={CollabTable}>{person.name}</td>
+                  <td style={CollabTable}>{findDomainType(person)}</td>
+                  <td style={CollabTable}>{person.personality_type}</td>
+                  <td style={CollabTable}>{person.job_type}</td>
+                </tr>
+              ))}
             
             </tbody>
           </table>

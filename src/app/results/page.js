@@ -1,11 +1,13 @@
 
+"use server"
+
 import { Space_Grotesk } from 'next/font/google';
 import React from 'react';
 
 import { getSession } from '@auth0/nextjs-auth0';
 import { redirect } from 'next/navigation'
 import Results from "../../../components/results"
-import { connect, updateUser, UserData } from '../../../lib/redis'
+import { updateUser, UserData } from '../../../lib/redis'
 
 export default async function Home() {
     const session = await getSession();
@@ -13,13 +15,18 @@ export default async function Home() {
         redirect("/")
         return
     }
-    const client = await connect(); 
-    const data = await UserData.fetch(session["user"].email);
+    const repo = await UserData();
+    const data = await repo.fetch(session["user"].email);
 
-    /*
-    const people = await UserData.search().where("communication_t").not.eq("").return.all();
-    console.log(people);
-    */
+    const people = await repo.search().return.all();
+    
+    let a = [];
+    for (const person of people) {
+        if (person.email == session["user"].email) continue;
+        a.push(person);
+    }
+    data["people"] = a;
+    
     return (
         <>
             <Results results={data} />

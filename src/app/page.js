@@ -2,7 +2,7 @@ import Landing from "../../components/landing"
 import Profile from "../../components/profile"
 import Image from 'next/image'
 import { getSession } from '@auth0/nextjs-auth0';
-import { connect, updateUser, UserData } from '../../lib/redis'
+import { updateUser, UserData } from '../../lib/redis'
 
 import { redirect } from 'next/navigation';
 export const metadata = {
@@ -17,12 +17,12 @@ export default async function Home() {
           </>
       )
   }
-  const client = await connect();
 
   const user = session["user"];
   const id = user.email;
 
-  const fetch = await UserData.fetch(id);
+  const repo = await UserData();
+  const fetch = await repo.fetch(id);
   const loc = fetch.location;
   const job_type = fetch.job_type;
   const ptype = fetch.personality_type;
